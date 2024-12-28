@@ -1,0 +1,81 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --main_background: #F7FFDD;
+  --delicate_icon: #EFD780;
+  --great-text: #DBA159;
+  --light_text: #D0E3CC;
+  --station_name: #494949;
+
+  /* cores das linhas */
+  --linha_1: #0E539E;
+  --linha_2: #217F62;
+  --linha_3: #E7483C;
+  --linha_4: #FCD43A;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--main_background);
+  transition: background-color 0.3s, color 0.3s;  /* Transição suave para a troca de tema */
+}
+
+h1 {
+  margin: 0;
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: var(--great-text);
+}
+
+label{
+  font-size: 12px;
+  font-weight: bolder;
+  color: var(--station_name)
+}
+
+input{
+  background-color: white;
+  color: #494949;
+  border: none;
+  width: 55%;
+  padding: 14px 25px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+button:hover {
+  position: relative;
+  top: -1px;
+  /* adicionar animação do botão crescendo um pouco aq*/
+}
+/* button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color; 
+} */
+
+[data-theme='dark'] {
+  --main_background: #282A3A;
+  --delicate_icon: #FCFDAF;
+  --great-text: #EFD780;
+  --light_text: #D0E3CC;
+  --station_name: #FCFDAF;
+}
