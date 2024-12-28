@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Info from '../../assets/infoSquare.svg?react';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
-const Header = ({ mode, setMode }) => {    
+const Header = ({ mode, setMode, setInfoState }) => {    
       const toggleMode = () => {
         setMode((prevMode) => (prevMode === 'dark' ? 'light' : 'dark'));
       };
@@ -29,7 +29,8 @@ const Header = ({ mode, setMode }) => {
                 </div>
 
                 {/* Botão informativo*/}
-                <button>
+                <button
+                  onClick={() => setInfoState(true)}>
                     <Info style={{ color: 'var(--delicate_icon)', width: '25px', height: '25px' }} />
                 </button>
             </div>

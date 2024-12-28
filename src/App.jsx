@@ -5,12 +5,14 @@ import './App.css'
 import Header from './components/header/Header'
 import InsertionBar from './components/insertionBar/InsertionBar'
 import Station from './components/station/Station'
+import InfoCard from './components/infoCard/InfoCard'
 
 // DADOS
 import { validStations } from './data/validStations'
 
 function App() {
   
+  const [infoState, setInfoState] = useState(false);
   const [prevStations, setPrevStations] = useState([]); // Estações já listadas
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'light'); // modo light/dark
 
@@ -54,14 +56,16 @@ function App() {
 
         return updatedStations;
       })
-
     }
   }
 
   return (
     <div className={`container ${mode === 'dark' ? 'dark' : 'light'}`}>
-      <Header mode={mode} setMode={setMode}></Header>
+      {/* Card Informativo sobre o jogo */}
+      {infoState && <div className='backdrop'></div>}
+      {infoState && <InfoCard setInfoState={setInfoState}/>}
 
+      <Header mode={mode} setMode={setMode} setInfoState={setInfoState}></Header>
        <div className='canvas'>
         {/* Renderiza as estações já listadas */}
         {prevStations.map((line, index) => (

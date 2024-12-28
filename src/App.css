@@ -35,6 +35,16 @@
   flex-direction: row;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Preto com transparência */
+  z-index: 0;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
