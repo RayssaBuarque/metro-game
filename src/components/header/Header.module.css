@@ -1,66 +1,66 @@
 .container{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .extra{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 
-    position: fixed;
-    right: 5%;
+  position: fixed;
+  right: 5%;
 }
 
 /* configurações do toggle button */
 .toggleButton {
-    width: 40px;
-    height: 20px;
-    border-radius: 12px;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    padding: 2px;
-  }
+  width: 40px;
+  height: 20px;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
   
-  .toggleButton.light {
-    background-color: #D0E3CC; /* Fundo para o tema claro */
-  }
+.toggleButton.light {
+  background-color: #D0E3CC; /* Fundo para o tema claro */
+}
   
-  .toggleButton.dark {
-    background-color: #DBA159; /* Fundo para o tema escuro */
-  }
+.toggleButton.dark {
+  background-color: #DBA159; /* Fundo para o tema escuro */
+}
 
-  .circle {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-  }
+.circle {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
   
-  .toggleButton.dark .circle {
-    left: calc(100% - 22px);
-    background-color: #EFD780;
-  }
+.toggleButton.dark .circle {
+  left: calc(100% - 22px);
+  background-color: #EFD780;
+}
   
-  .toggleButton.light .circle {
-    left: 2px; 
-    background-color: white;
-  }
+.toggleButton.light .circle {
+  left: 2px; 
+  background-color: white;
+}
   
-  .circle svg {
-    pointer-events: none;
-  }
+.circle svg {
+  pointer-events: none;
+}

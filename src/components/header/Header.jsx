@@ -21,7 +21,7 @@ const Header = ({ mode, setMode }) => {
                      onClick={toggleMode} >
                     <div className={styles.circle}>
                         {mode === 'light' ? (
-                            <MdOutlineDarkMode size={18} color="#DBA159" />
+                          <MdOutlineDarkMode size={18} color="#DBA159" />
                         ) : (
                           <MdOutlineLightMode size={18} color="#494949" />
                         )}
