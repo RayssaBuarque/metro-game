@@ -1,0 +1,14 @@
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: fixed;
+    right: 5%;
+}
