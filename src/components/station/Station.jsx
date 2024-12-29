@@ -1,9 +1,8 @@
 import styles from './Station.module.css';
 
-const Station = ({name, line, left, right}) => {
+const Station = ({name, line, left, right, space}) => {
     return (
-        <div className={styles.container}>
-            <div className={styles.station}>
+        <>
             { (left == null) &&
                 <div
                     style={{ backgroundColor: `var(--linha_${line})` }} 
@@ -11,21 +10,24 @@ const Station = ({name, line, left, right}) => {
                     <label>{line}</label>
                 </div>        
             }
-            
+            <div className={styles.container}>
+              <div className={styles.station}>
                 <div 
                     className={styles.left}
                     style={{ backgroundColor: `var(--linha_${(left != null)? line : "transparent"})` }} ></div>
                 <div
                     className={styles.dot}
                     style={{ backgroundColor: `var(--linha_${line})` }} ></div>
-
                 <div
-                    className={styles.right}
+                    className={`${styles.right} ${(space)? styles.space : ''}`}
                     style={{ backgroundColor: `var(--linha_${(right != null)? line : "transparent"})` }} ></div>
-            </div>
+                
+                <div className={(space)? styles.space : ''}></div>
+              </div>
 
-            <label> {name} </label>
-        </div>
+              <label> {name} </label>
+            </div>
+        </>
     );
    };
    

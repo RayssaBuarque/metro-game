@@ -68,19 +68,28 @@ function App() {
       <Header mode={mode} setMode={setMode} setInfoState={setInfoState}></Header>
        <div className='canvas'>
         {/* Renderiza as estações já listadas */}
-        {prevStations.map((line, index) => (
-          <div key={index} className={`linha_${line[0].line}`}>
-            {line.map((station, stationIndex) => (
-            <Station
-              key={stationIndex}
-              name={station.name}
-              line={station.line}
-              left={station.left}
-              right={station.right}/>
-            ))}
-
+        {prevStations.map((line, index) => { 
+          const positions = line.map(station => station.pos);
+          // console.log(positions)
+          
+          return (
+            <div key={index} className={`linha_${line[0].line}`}>
+            {line.map((station, stationIndex) => {
+              const isMissing = !positions.includes(station.pos + 1) && stationIndex > -1;
+              
+              return(
+                <Station
+                  key={stationIndex}
+                  name={station.name}
+                  line={station.line}
+                  left={station.left}
+                  right={station.right}
+                  space={isMissing}/> )
+            })}
           </div>
-        ))}
+        )}
+
+        )}
       </div>
 
       <InsertionBar checkInput={checkInput}></InsertionBar>

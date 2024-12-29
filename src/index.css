@@ -11,8 +11,10 @@
   -moz-osx-font-smoothing: grayscale;
 
   --main_background: #F7FFDD;
+  --accent_background:#D0E3CC;
   --delicate_icon: #EFD780;
   --great-text: #DBA159;
+  --accent-text: #DBA159;
   --light_text: #D0E3CC;
   --station_name: #494949;
 
@@ -45,7 +47,7 @@ h2, p{
 }
 
 a{
-  color: #DBA159;
+  color: var(--accent-text);
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
@@ -86,8 +88,9 @@ button:focus-visible {
 
 [data-theme='dark'] {
   --main_background: #282A3A;
+  --accent_background: #EFD780;
   --delicate_icon: #FCFDAF;
   --great-text: #EFD780;
-  --light_text: #D0E3CC;
+  --accent-text: #F7FFDD;
   --station_name: #FCFDAF;
 }
