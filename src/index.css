@@ -19,10 +19,19 @@
   --station_name: #494949;
 
   /* cores das linhas */
-  --linha_1: #0E539E;
-  --linha_2: #217F62;
-  --linha_3: #E7483C;
+  --linha_1: #0051A0;
+  --linha_2: #008261;
+  --linha_3: #F63C30;
   --linha_4: #FCD43A;
+  --linha_5: #7951A7;
+  --linha_7: #981C62;
+  --linha_8: #9E9E96;
+  --linha_9: #00AA91;
+  --linha_10: #007D8F;
+  --linha_11: #F24C1C;
+  --linha_12: #053E85;
+  --linha_13: #11A35A;
+  --linha_15: #878F92;
 }
 
 body {
