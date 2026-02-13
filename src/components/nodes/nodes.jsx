@@ -21,9 +21,9 @@ export default function Nodes({ data }) {
             width: 18,
             height: 18,
             borderRadius: "50%",
-            background: "white",
-            border: `4px solid ${cores[data.linha]}`,
-            boxShadow: "0 0 6px rgba(0,0,0,0.5)"
+            background: `${cores[data.linha]}`,
+            border: `4px solid white`,
+            boxShadow: "0 0 6px rgba(0, 0, 0, 0.16)"
         }}
       />
 
@@ -35,7 +35,7 @@ export default function Nodes({ data }) {
             fontSize: 10,
             transform: "rotate(45deg)",
             width: 100,
-            color: "black"
+            color: "var(--station_name)"
         }}>
         {data.label}
       </div>
