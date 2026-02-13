@@ -55,8 +55,8 @@ function App() {
       {infoState && <div className='backdrop' style={{ position: 'relative', zIndex: 0 }}></div>}
       {infoState && <InfoCard style={{ position: 'relative', zIndex: 2 }} setInfoState={setInfoState}/>}
 
-      <Header mode={mode} setMode={setMode} setInfoState={setInfoState}></Header>
-      <Canvas style={{position: "relative", zIndex: 0}} estacoesDescobertas={descobertas} />
+      <Header style={{position: "relative", zIndex: 1}} mode={mode} setMode={setMode} setInfoState={setInfoState}></Header>
+      <Canvas estacoesDescobertas={descobertas} />
       <InsertionBar checkInput={checkInput}></InsertionBar>
     </div>
   )

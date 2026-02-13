@@ -4,7 +4,7 @@ export const coord_estacoes = {
     id: "tucuruvi",
     x: 1400,
     y: -600,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -12,7 +12,7 @@ export const coord_estacoes = {
     id: "parada_inglesa",
     x: 1400,
     y: -525,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -20,7 +20,7 @@ export const coord_estacoes = {
     id: "jd_sao_paulo_ayrton_senna",
     x: 1400,
     y: -450,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -28,7 +28,7 @@ export const coord_estacoes = {
     id: "santana",
     x: 1400,
     y: -375,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -36,7 +36,7 @@ export const coord_estacoes = {
     id: "carandiru",
     x: 1400,
     y: -300,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -44,7 +44,7 @@ export const coord_estacoes = {
     id: "portuguesa_tiete",
     x: 1400,
     y: -225,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -52,7 +52,7 @@ export const coord_estacoes = {
     id: "armenia",
     x: 1400,
     y: -150,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -60,7 +60,7 @@ export const coord_estacoes = {
     id: "tiradentes",
     x: 1400,
     y: -75,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -71,7 +71,7 @@ export const coord_estacoes = {
     id: "sao_bento",
     x: 1400,
     y: 75,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -79,7 +79,7 @@ export const coord_estacoes = {
     id: "se",
     x: 1400,
     y: 150,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul", "vermelha"]
   },
@@ -87,7 +87,7 @@ export const coord_estacoes = {
     id: "japao_liberdade",
     x: 1400,
     y: 225,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -95,7 +95,7 @@ export const coord_estacoes = {
     id: "sao_joaquim",
     x: 1400,
     y: 300,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -103,7 +103,7 @@ export const coord_estacoes = {
     id: "vergueiro",
     x: 1400,
     y: 375,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -111,7 +111,7 @@ export const coord_estacoes = {
     id: "paraiso",
     x: 1400,
     y: 450,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul", "verde"]
   },
@@ -119,7 +119,7 @@ export const coord_estacoes = {
     id: "ana_rosa",
     x: 1400,
     y: 525,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["azul", "verde"]
   },
@@ -127,7 +127,7 @@ export const coord_estacoes = {
     id: "vila_mariana",
     x: 1400,
     y: 600,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["azul"]
   },
@@ -135,7 +135,7 @@ export const coord_estacoes = {
     id: "santa_cruz",
     x: 1400,
     y: 675,
-    grau: 0,
+    grau: 360,
     textPos: [1, -1],
     linhas: ["azul", "lilas"]
   },
@@ -143,7 +143,7 @@ export const coord_estacoes = {
     id: "praca_da_arvore",
     x: 1400,
     y: 750,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -151,7 +151,7 @@ export const coord_estacoes = {
     id: "saude",
     x: 1400,
     y: 825,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -159,7 +159,7 @@ export const coord_estacoes = {
     id: "sao_judas",
     x: 1400,
     y: 900,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -167,7 +167,7 @@ export const coord_estacoes = {
     id: "conceicao",
     x: 1400,
     y: 975,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
   },
@@ -175,9 +175,108 @@ export const coord_estacoes = {
     id: "jabaquara",
     x: 1400,
     y: 1050,
-    grau: 0,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["azul"]
+  },
+
+  // LINHA 2 - VERDE
+  "Vila Madalena": {
+    id: "vila_madalena",
+    x: 830,
+    y: 0,
+    grau: 360,
+    textPos: [-1, -1],
+    linhas: ["verde"]
+  },
+  "Sumaré": {
+    id: "sumare",
+    x: 930,
+    y: 50,
+    grau: 360,
+    textPos: [-1, -1],
+    linhas: ["verde"]
+  },
+  "Clínicas": {
+    id: "clinicas",
+    x: 1000,
+    y: 90,
+    grau: 360,
+    textPos: [-1, -1],
+    linhas: ["verde"]
+  },
+  "Consolação": {
+    id: "consolacao",
+    x: 1150,
+    y: 175,
+    grau: 360,
+    textPos: [-1, -1],
+    linhas: ["verde"]
+  },
+  "Trianon - Masp": {
+    id: "trianon_masp",
+    x: 1235,
+    y: 265,
+    grau: 360,
+    textPos: [-1, -1],
+    linhas: ["verde"]
+  },
+  "Brigadeiro": {
+    id: "brigadeiro",
+    x: 1315,
+    y: 360,
+    grau: 360,
+    textPos: [-1, -1],
+    linhas: ["verde"]
+  },
+  //
+  // Paraíso 450 - 1400
+  //
+  //
+  // Ana Rosa
+  //
+  //
+  // Chácara Klabin
+  //
+  "Santos - Imigrantes": {
+    id: "santos_imigrantes",
+    x: 1600,
+    y: 625,
+    grau: 360,
+    textPos: [1, -1],
+    linhas: ['verde']
+  },
+  "Alto do Ipiranga": {
+    id: "alto_do_ipiranga",
+    x: 1725,
+    y: 500,
+    grau: 360,
+    textPos: [1, -1],
+    linhas: ['verde']
+  },
+  "Sacomã": {
+    id: "sacoma",
+    x: 1800,
+    y: 430,
+    grau: 360,
+    textPos: [1, -1],
+    linhas: ['verde']
+  },
+  "Tamanduateí": {
+    id: "tamanduatei",
+    x: 1900,
+    y: 350,
+    grau: 360,
+    textPos: [1, -1],
+    linhas: ['verde', 'turquesa']
+  },
+  "Ipiranga": {
+    id: "ipiranga",
+    x: 2000,
+    y: 275,
+    grau: 360,
+    textPos: [1, -1],
+    linhas: ['verde', 'prata']
   },
 
   // LINHA 4 - AMARELA
@@ -185,7 +284,7 @@ export const coord_estacoes = {
     id: "vila_sonia",
     x: 400,
     y: 200,
-    grau: 45,
+    grau: 315,
     textPos: [0, -1],
     linhas: ["amarela"]
   },
@@ -193,7 +292,7 @@ export const coord_estacoes = {
     id: "sao_paulo_morumbi",
     x: 500,
     y: 200,
-    grau: 45,
+    grau: 315,
     textPos: [0, -1],
     linhas: ["amarela"]
   },
@@ -201,7 +300,7 @@ export const coord_estacoes = {
     id: "butanta",
     x: 600,
     y: 200,
-    grau: 45,
+    grau: 315,
     textPos: [0, -1],
     linhas: ["amarela"]
   },
@@ -209,7 +308,7 @@ export const coord_estacoes = {
     id: "pinheiros",
     x: 700,
     y: 200,
-    grau: 45,
+    grau: 360,
     textPos: [-1, 1],
     linhas: ["amarela", "esmeralda"]
   },
@@ -241,15 +340,15 @@ export const coord_estacoes = {
     id: "paulista",
     x: 1100,
     y: 150,
-    grau: 45,
-    textPos: [-1, 1],
+    grau: 360,
+    textPos: [-1, 0],
     linhas: ["amarela"]
   },
   "Higienópolis - Mackenzie": {
     id: "higienopolis_mackenzie",
     x: 1200,
     y: 100,
-    grau: 45,
+    grau: 360,
     textPos: [-1, 1],
     linhas: ["amarela"]
   },
@@ -257,7 +356,7 @@ export const coord_estacoes = {
     id: "republica",
     x: 1300,
     y: 50,
-    grau: 45,
+    grau: 360,
     textPos: [-1, 1],
     linhas: ["amarela", "vermelha"]
   },
@@ -265,10 +364,139 @@ export const coord_estacoes = {
     id: "luz",
     x: 1400,
     y: 0,
-    grau: 45,
+    grau: 360,
     textPos: [1, 0],
     linhas: ["amarela", "azul", "coral"]
   },
+  
+  // LINHA 5 - LILÁS
+  "Capão Redondo": {
+    id: "capao_redondo",
+    x: 300,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Campo Limpo": {
+    id: "campo_limpo",
+    x: 400,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Vila das Belezas": {
+    id: "vila_das_belezas",
+    x: 500,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Giovanni Gronchi": {
+    id: "giovanni_gronchi",
+    x: 600,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  //
+  // Santo Amaro
+  //
+  "Largo Treze": {
+    id: "largo_treze",
+    x: 775,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Adolfo Pinheiro": {
+    id: "adolfo_pinheiro",
+    x: 850,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Alto da Boa Vista": {
+    id: "alto_da_boa_vista",
+    x: 925,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Borba Gato": {
+    id: "borba_gato",
+    x: 1000,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Brooklin": {
+    id: "brooklin",
+    x: 1050,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Campo Belo": {
+    id: "campo_belo",
+    x: 1100,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Eucaliptos": {
+    id: "eucaliptos",
+    x: 1175,
+    y: 800,
+    grau: 315,
+    textPos: [0, -1],
+    linhas: ["lilas"]
+  },
+  "Moema": {
+    id: "moema",
+    x: 1225,
+    y: 775,
+    grau: 360,
+    textPos: [-1, 1],
+    linhas: ["lilas"]
+  },
+  "AACD - Servidor": {
+    id: "aacd_servidor",
+    x: 1280,
+    y: 740,
+    grau: 360,
+    textPos: [-1, 1],
+    linhas: ["lilas"]
+  },
+  "Hospital São Paulo": {
+    id: "hospital_sao_paulo",
+    x: 1340,
+    y: 705,
+    grau: 360,
+    textPos: [-1, 1],
+    linhas: ["lilas"]
+  },
+  //
+  // Santa Cruz
+  //
+  "Chácara Klabin": {
+    id: "chacara_klabin",
+    x: 1500,
+    y: 625,
+    grau: 360,
+    textPos: [1, 1],
+    linhas: ["lilas", 'verde']
+  },
+
 
   // LINHA 9 - ESMERALDA
    "Osasco": {
@@ -291,7 +519,7 @@ export const coord_estacoes = {
     id: "ceasa",
     x: 700,
     y: -25,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -299,7 +527,7 @@ export const coord_estacoes = {
     id: "villa_lobos_jaguaré",
     x: 700,
     y: 50,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -307,7 +535,7 @@ export const coord_estacoes = {
     id: "cidade_universitaria",
     x: 700,
     y: 125,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -318,7 +546,7 @@ export const coord_estacoes = {
     id: "hebraica_reboucas",
     x: 700,
     y: 275,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -326,7 +554,7 @@ export const coord_estacoes = {
     id: "cidade_jardim",
     x: 700,
     y: 350,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -334,7 +562,7 @@ export const coord_estacoes = {
     id: "vila_olimpia",
     x: 700,
     y: 425,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -342,7 +570,7 @@ export const coord_estacoes = {
     id: "berrini",
     x: 700,
     y: 500,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -350,7 +578,7 @@ export const coord_estacoes = {
     id: "morumbi",
     x: 700,
     y: 575,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -358,7 +586,7 @@ export const coord_estacoes = {
     id: "granja_julieta",
     x: 700,
     y: 650,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -366,7 +594,7 @@ export const coord_estacoes = {
     id: "joao_dias",
     x: 700,
     y: 725,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -374,15 +602,15 @@ export const coord_estacoes = {
     id: "santo_amaro",
     x: 700,
     y: 800,
-    grau: 45,
-    textPos: [1, -1],
+    grau: 315,
+    textPos: [-1, -1],
     linhas: ["esmeralda"]
   },
   "Socorro": {
     id: "socorro",
     x: 700,
     y: 875,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -390,7 +618,7 @@ export const coord_estacoes = {
     id: "jurubatuba",
     x: 700,
     y: 950,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -398,7 +626,7 @@ export const coord_estacoes = {
     id: "autodromo",
     x: 700,
     y: 1025,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -406,7 +634,7 @@ export const coord_estacoes = {
     id: "primavera_interlagos",
     x: 700,
     y: 1100,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -414,7 +642,7 @@ export const coord_estacoes = {
     id: "grajau",
     x: 700,
     y: 1175,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -422,7 +650,7 @@ export const coord_estacoes = {
     id: "mendes_vila_natal",
     x: 700,
     y: 1250,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -430,7 +658,7 @@ export const coord_estacoes = {
     id: "varginha",
     x: 700,
     y: 1325,
-    grau: 0,
+    grau: 360,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
   },
@@ -465,6 +693,25 @@ export const coord_linhas = {
       "Jabaquara"
     ]
   },
+  verde:{
+    cor: "var(--linha_2)",
+    ordem: [
+      "Vila Madalena",
+      "Sumaré",
+      "Clínicas",
+      "Consolação",
+      'Trianon - Masp',
+      'Brigadeiro',
+      'Paraíso',
+      'Ana Rosa',
+      "Chácara Klabin",
+      "Santos - Imigrantes",
+      "Alto do Ipiranga",
+      "Sacomã",
+      "Tamanduateí",
+      "Ipiranga"
+    ]
+  },
   amarela: {
     cor: "var(--linha_4)",
     ordem: [
@@ -479,6 +726,28 @@ export const coord_linhas = {
       "Higienópolis - Mackenzie",
       "República",
       "Luz"
+    ]
+  },
+  lilas: {
+    cor: "var(--linha_5)",
+    ordem: [
+      "Capão Redondo",
+      "Campo Limpo",
+      "Vila das Belezas",
+      "Giovanni Gronchi",
+      "Santo Amaro",
+      "Largo Treze",
+      "Adolfo Pinheiro",
+      "Alto da Boa Vista",
+      "Borba Gato",
+      "Brooklin",
+      "Campo Belo",
+      "Eucaliptos",
+      "Moema",
+      "AACD - Servidor",
+      "Hospital São Paulo",
+      "Santa Cruz",
+      "Chácara Klabin"
     ]
   },
   esmeralda: {

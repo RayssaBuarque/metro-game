@@ -3,7 +3,7 @@ import { BaseEdge } from "reactflow";
 export default function Edges({ sourceX, sourceY, targetX, targetY, style, sourceHandleId, targetHandleId }) {
 
     // INFORMAÇÕES BASE 
-    const raio = 9;
+    const raio = 0.001;
 
     /*
         CÁLCULO DA POSIÇÃO DAS ARESTAS

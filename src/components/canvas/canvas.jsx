@@ -1,5 +1,5 @@
 import React from "react";
-import ReactFlow, { Controls } from "reactflow";
+import ReactFlow, { Controls, Background } from "reactflow";
 import "reactflow/dist/style.css";
 import { coord_estacoes, coord_linhas } from "../../data/estacoes";
 import Nodes from "../nodes/nodes";
@@ -34,6 +34,8 @@ export function Canvas({ estacoesDescobertas }) {
     */
     const nodes = estacoesDescobertas.map(nome => {
         const e = coord_estacoes[nome];
+        const textPos = e.textPos;
+        const grau = e.grau;
         const handles = [];
 
         Object.entries(coord_linhas).forEach(([linha, info]) => {
@@ -67,7 +69,9 @@ export function Canvas({ estacoesDescobertas }) {
             data: {
                 label: nome,
                 linha: e.linhas[0],
-                handles: handles
+                handles: handles,
+                textPos: textPos,
+                grau: grau
             },
             type: "metro",
         };
@@ -112,8 +116,14 @@ export function Canvas({ estacoesDescobertas }) {
     });
 
     return (
-        <div style={{ width: "100%", height: "80vh" }}>
+        <div style={{ width: "100%", height: "72vh" }}>
             <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes} defaultEdgeOptions={{ type: 'metro' }}>
+                <Background 
+                    color="var(--grid)"
+                    gap={100}
+                    size={2}
+                    variant="lines"
+                    />
                 <Controls />
             </ReactFlow>
         </div>

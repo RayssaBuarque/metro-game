@@ -1,7 +1,31 @@
 import React, {useMemo, useEffect} from "react";
 import { Handle, Position, useUpdateNodeInternals } from "reactflow";
 
+// Função de utilidade pra formatação do nome da estação
+function get_textPos(textPos) {
+    let [x, y] = textPos;
+
+    if (x == 0)
+        x = -45
+    if (x == 1)
+        x = 35
+    if (x == -1)
+        x = -60
+    
+    if (y == 0)
+        y = 5
+    if (y == 1)
+        y = -25
+    if (y == -1)
+        y = 35
+
+    return [x, y]
+}
+
 export default function Nodes({ data, id }) {
+    const textPos = get_textPos(data.textPos) || [65, 0];
+    const grau = data.grau || 45;
+
     const size = 18;
     const raio = size / 2;
     const updateNodeInternals = useUpdateNodeInternals();
@@ -22,6 +46,8 @@ export default function Nodes({ data, id }) {
     useEffect(() => {
         updateNodeInternals(id);
     }, [data.handles, id, updateNodeInternals]);
+
+    
     
     return (
         <div style={{ position: "relative", width: size, height: size }}>
@@ -92,10 +118,11 @@ export default function Nodes({ data, id }) {
             <div style={{
                     position: "absolute",
                     textAlign: "left",
-                    top: 65,
+                    top: textPos[1],
+                    left: textPos[0],
                     fontSize: 10,
-                    transform: "rotate(45deg)",
-                    width: 100,
+                    transform: `rotate(${grau}deg)`,
+                    width: 60,
                     color: "var(--station_name)"
                 }}>
                 {data.label}

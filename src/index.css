@@ -17,6 +17,7 @@
   --accent-text: #DBA159;
   --light_text: #D0E3CC;
   --station_name: #494949;
+  --grid: #efcc804b;
 
   /* cores das linhas */
   --linha_1: #0051A0;
@@ -102,4 +103,5 @@ button:focus-visible {
   --great-text: #EFD780;
   --accent-text: #F7FFDD;
   --station_name: #FCFDAF;
+  --grid: #494949;
 }
