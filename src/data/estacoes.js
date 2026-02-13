@@ -1,4 +1,184 @@
 export const coord_estacoes = {
+  // LINHA 1 - AZUL
+   "Tucuruvi": {
+    id: "tucuruvi",
+    x: 1400,
+    y: -600,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Parada Inglesa": {
+    id: "parada_inglesa",
+    x: 1400,
+    y: -525,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Jd. São Paulo - Ayrton Senna": {
+    id: "jd_sao_paulo_ayrton_senna",
+    x: 1400,
+    y: -450,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Santana": {
+    id: "santana",
+    x: 1400,
+    y: -375,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Carandiru": {
+    id: "carandiru",
+    x: 1400,
+    y: -300,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Portuguesa - Tietê": {
+    id: "portuguesa_tiete",
+    x: 1400,
+    y: -225,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Armênia": {
+    id: "armenia",
+    x: 1400,
+    y: -150,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Tiradentes": {
+    id: "tiradentes",
+    x: 1400,
+    y: -75,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  //
+  // Luz
+  //
+  "São Bento": {
+    id: "sao_bento",
+    x: 1400,
+    y: 75,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Sé": {
+    id: "se",
+    x: 1400,
+    y: 150,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul", "vermelha"]
+  },
+  "Japão - Liberdade": {
+    id: "japao_liberdade",
+    x: 1400,
+    y: 225,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "São Joaquim": {
+    id: "sao_joaquim",
+    x: 1400,
+    y: 300,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Vergueiro": {
+    id: "vergueiro",
+    x: 1400,
+    y: 375,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Paraíso": {
+    id: "paraiso",
+    x: 1400,
+    y: 450,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul", "verde"]
+  },
+  "Ana Rosa": {
+    id: "ana_rosa",
+    x: 1400,
+    y: 525,
+    grau: 0,
+    textPos: [-1, 0],
+    linhas: ["azul", "verde"]
+  },
+  "Vila Mariana": {
+    id: "vila_mariana",
+    x: 1400,
+    y: 600,
+    grau: 0,
+    textPos: [-1, 0],
+    linhas: ["azul"]
+  },
+  "Santa Cruz": {
+    id: "santa_cruz",
+    x: 1400,
+    y: 675,
+    grau: 0,
+    textPos: [1, -1],
+    linhas: ["azul", "lilas"]
+  },
+  "Praça da Árvore": {
+    id: "praca_da_arvore",
+    x: 1400,
+    y: 750,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Saúde": {
+    id: "saude",
+    x: 1400,
+    y: 825,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "São Judas": {
+    id: "sao_judas",
+    x: 1400,
+    y: 900,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Conceição": {
+    id: "conceicao",
+    x: 1400,
+    y: 975,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
+  "Jabaquara": {
+    id: "jabaquara",
+    x: 1400,
+    y: 1050,
+    grau: 0,
+    textPos: [1, 0],
+    linhas: ["azul"]
+  },
 
   // LINHA 4 - AMARELA
   "Vila Sônia": {
@@ -91,6 +271,22 @@ export const coord_estacoes = {
   },
 
   // LINHA 9 - ESMERALDA
+   "Osasco": {
+    id: "osasco",
+    x: 600,
+    y: -100,
+    grau: 0,
+    textPos: [0, 1],
+    linhas: ["esmeralda"]
+  },
+  "Pres. Altino": {
+    id: "pres_altino",
+    x: 650,
+    y: -100,
+    grau: 0,
+    textPos: [0, 1],
+    linhas: ["esmeralda"]
+  },
   "Ceasa": {
     id: "ceasa",
     x: 700,
@@ -246,8 +442,27 @@ export const coord_linhas = {
     ordem: [
       "Tucuruvi",
       "Parada Inglesa",
+      "Jd. São Paulo - Ayrton Senna",
+      "Santana",
+      "Carandiru",
+      "Portuguesa - Tietê",
+      "Armênia",
+      "Tiradentes",
       "Luz",
-      "São Bento"
+      "São Bento",
+      "Sé",
+      "Japão - Liberdade",
+      "São Joaquim",
+      "Vergueiro",
+      "Paraíso",
+      "Ana Rosa",
+      "Vila Mariana",
+      "Santa Cruz",
+      "Praça da Árvore",
+      "Saúde",
+      "São Judas",
+      "Conceição",
+      "Jabaquara"
     ]
   },
   amarela: {
@@ -269,6 +484,8 @@ export const coord_linhas = {
   esmeralda: {
     cor: "var(--linha_9)",
     ordem: [
+      "Osasco",
+      "Pres. Altino",
       "Ceasa",
       "Villa Lobos - Jaguaré",
       "Cidade Universitária",
