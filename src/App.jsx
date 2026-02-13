@@ -4,94 +4,59 @@ import './App.css'
 // COMPONENTES
 import Header from './components/header/Header'
 import InsertionBar from './components/insertionBar/InsertionBar'
-import Station from './components/station/Station'
 import InfoCard from './components/infoCard/InfoCard'
+import { Canvas } from "./components/canvas/canvas";
 
 // DADOS
-import { validStations } from './data/validStations'
+import { coord_estacoes, coord_linhas } from './data/estacoes'
 
 function App() {
   
-  const [infoState, setInfoState] = useState(false);
-  const [prevStations, setPrevStations] = useState([]); // Estações já listadas
-  const [mode, setMode] = useState(localStorage.getItem('theme') || 'light'); // modo light/dark
+  const [descobertas, setDescobertas] = useState([]);                           // Estações descobertas
+  const [infoState, setInfoState] = useState(false);                            // Estado do card de informações (aberto/fechado)
+  const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');   // modo light/dark
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', mode);
     localStorage.setItem('theme', mode);
   }, [mode]);
 
-  // Função para verificar se a estação existe
-  // (SIM: retorna seu nome - NÃO: retorna undefined)
-  const checkStationExistence = (name) => { 
-    const lowercase = name.toLowerCase()
-                          .normalize("NFD")
-                          .replace(/[\u0300-\u036f]/g, "")
-                          .replace(/-\s/g, "")
+  /*
+    FUNÇÕES DE VALIDAÇÃO DE INPUTS DE ESTAÇÃO
+      1. Normaliza o objeto das estações - tira acentos e usa lowercase
+      2. Verifica se a estação existe (SIM: retorna nome - NÃO: retorna undefined)
+      3. Atualiza a lista de estações descobertas
+  */
+  const coord_estacoes_normalized = Object.keys(coord_estacoes).reduce((acc, key) => {
+    const normalizedKey = key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/-\s/g, "");
+    acc[normalizedKey] = {
+      nomeOriginal: key,
+      dados: coord_estacoes[key]
+    };
+    return acc;
+  }, {});
 
-    return validStations.find( station => station.name.toLowerCase()
-                                                  .normalize("NFD")
-                                                  .replace(/[\u0300-\u036f]/g, "")
-                                                  .replace(/-\s/g, "") === lowercase)
+  const checkStationExistence = (name) => { 
+    const normalized = name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/-\s/g, "");
+    return (normalized in coord_estacoes_normalized) ? coord_estacoes_normalized[normalized]?.nomeOriginal : undefined;
   }
 
-  // Função para manipular o envio do nome da estação
   const checkInput = (stationName) => {
-    const res = checkStationExistence(stationName)
-    if (res){
-      setPrevStations((prev) =>{
-        const updatedStations = [...prev];
-
-        // Verifica se já existe uma linha correspondente
-        const lineIndex = updatedStations.findIndex(
-          (lineArray) => lineArray.length > 0 && lineArray[0].line === res.line
-        );
-
-        // Caso não exista, cria um novo array para essa linha
-        if (lineIndex === -1) {
-          updatedStations.push([res]);
-        } else { // Ou add nova estação na linha, mantendo a ordem crescente
-          updatedStations[lineIndex] = [...updatedStations[lineIndex], res,].sort((a, b) => a.pos - b.pos);
-        }
-
-        return updatedStations;
-      })
+    const estacao = checkStationExistence(stationName)
+    if (estacao && !descobertas.includes(estacao)) {
+      setDescobertas([...descobertas, estacao]);
     }
   }
 
   return (
     <div className={`container ${mode === 'dark' ? 'dark' : 'light'}`}>
+
       {/* Card Informativo sobre o jogo */}
-      {infoState && <div className='backdrop'></div>}
-      {infoState && <InfoCard setInfoState={setInfoState}/>}
+      {infoState && <div className='backdrop' style={{ position: 'relative', zIndex: 0 }}></div>}
+      {infoState && <InfoCard style={{ position: 'relative', zIndex: 2 }} setInfoState={setInfoState}/>}
 
       <Header mode={mode} setMode={setMode} setInfoState={setInfoState}></Header>
-       <div className='canvas'>
-        {/* Renderiza as estações já listadas */}
-        {prevStations.map((line, index) => { 
-          const positions = line.map(station => station.pos);
-          // console.log(positions)
-          
-          return (
-            <div key={index} className={`linha_${line[0].line}`}>
-            {line.map((station, stationIndex) => {
-              const isMissing = !positions.includes(station.pos + 1) && stationIndex > -1;
-              
-              return(
-                <Station
-                  key={stationIndex}
-                  name={station.name}
-                  line={station.line}
-                  left={station.left}
-                  right={station.right}
-                  space={isMissing}/> )
-            })}
-          </div>
-        )}
-
-        )}
-      </div>
-
+      <Canvas style={{position: "relative", zIndex: 0}} estacoesDescobertas={descobertas} />
       <InsertionBar checkInput={checkInput}></InsertionBar>
     </div>
   )

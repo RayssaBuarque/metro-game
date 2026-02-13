@@ -71,14 +71,14 @@ export const validStations = [
         pos: 9,
         name: "Higienópolis - Mackenzie",
         line: "4",
-        left: 225,
+        left: 45,
         right: 45
     },
     {
         pos: 10,
         name: "República",
         line: "4",
-        left: 225,
+        left: 45,
         right: 45
     },
     {
@@ -91,7 +91,7 @@ export const validStations = [
         pos: 11,
         name: "Luz",
         line: "4",
-        left: 225,
+        left: 45,
         right: null
     },
     {

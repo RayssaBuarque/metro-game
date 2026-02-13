@@ -28,7 +28,7 @@ const InfoCard = ({setInfoState}) => {
                     <p>O <b>metro</b> foi um jogo criado por mim, <a target='_blank' href='https://www. linkedin.com/in/rayssabuarque/'>Rayssa Buarque</a>, em dezembro de 2024 e tem como   único objetivo testar seus conhecimentos:</p>
                 </div>
                 
-                <p><b>Quantas das 184 estações do trem e do metrô de São Paulo você é capaz de nomear com apenas a sua memória?</b></p>
+                <p><b>Quantas das 184 estações do trem e do metrô de São Paulo você é capaz de nomear usando apenas a sua memória?</b></p>
             </div>        
         </div>
     );
