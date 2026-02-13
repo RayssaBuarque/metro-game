@@ -94,7 +94,7 @@ export const coord_estacoes = {
   "Ceasa": {
     id: "ceasa",
     x: 700,
-    y: 50,
+    y: -25,
     grau: 0,
     textPos: [-1, 0],
     linhas: ["esmeralda"]
@@ -241,8 +241,17 @@ export const coord_estacoes = {
 };
 
 export const coord_linhas = {
+  azul: {
+    cor: "var(--linha_1)",
+    ordem: [
+      "Tucuruvi",
+      "Parada Inglesa",
+      "Luz",
+      "São Bento"
+    ]
+  },
   amarela: {
-    cor: "#FFD100",
+    cor: "var(--linha_4)",
     ordem: [
       "Vila Sônia",
       "São Paulo - Morumbi",
@@ -257,17 +266,8 @@ export const coord_linhas = {
       "Luz"
     ]
   },
-  azul: {
-    cor: "#003DA5",
-    ordem: [
-      "Tucuruvi",
-      "Parada Inglesa",
-      "Luz",
-      "São Bento"
-    ]
-  },
   esmeralda: {
-    cor: "#00A650",
+    cor: "var(--linha_9)",
     ordem: [
       "Ceasa",
       "Villa Lobos - Jaguaré",
