@@ -1,7 +1,12 @@
-import React from "react";
-import ReactFlow, { Controls, Background } from "reactflow";
+import React, { useEffect, useRef } from "react";
+import ReactFlow, { Controls, Background, useReactFlow, ReactFlowProvider } from "reactflow";
+import encontrarVizinhos from "../../utils";
 import "reactflow/dist/style.css";
+
+// Dados sobre as estações
 import { coord_estacoes, coord_linhas } from "../../data/estacoes";
+
+// Componentes de nós e arestas
 import Nodes from "../nodes/nodes";
 import Edges from "../edges/edges";
 
@@ -13,7 +18,10 @@ const edgeTypes = {
     metro: Edges,
 };
 
-export function Canvas({ estacoesDescobertas }) {
+// Componente interno que tem acesso ao useReactFlow
+function FlowContent({ estacoesDescobertas }) {
+    const { fitView } = useReactFlow();
+    const prevEstacoesRef = useRef(estacoesDescobertas);
 
     // Função para calcular o ângulo exato entre dois pontos
     function calcularAngulo(estacaoOrigem, estacaoDestino) {
@@ -75,8 +83,7 @@ export function Canvas({ estacoesDescobertas }) {
             },
             type: "metro",
         };
-    }, [estacoesDescobertas]);
-
+    });
   
     /*
         LÓGICA DE CONSTRUÇÃO DO GRAFO COM ARESTAS DESCOBERTAS
@@ -115,17 +122,69 @@ export function Canvas({ estacoesDescobertas }) {
         }
     });
 
+    // Centralizando o canvas no nó descoberto a cada inserção de nó, com timeout pra garantir renderização
+    useEffect(() => {
+        const estacoesAnteriores = prevEstacoesRef.current;
+        const novasEstacoes = estacoesDescobertas.filter(
+            estacao => !estacoesAnteriores.includes(estacao)
+        );
+        
+        if (novasEstacoes.length > 0) {
+            const ultimaEstacao = novasEstacoes[novasEstacoes.length - 1];
+            const e = coord_estacoes[ultimaEstacao];
+            
+            // Encontra os vizinhos (5 antes, 5 depois) na mesma linha (prioriza primeira linha)
+            const linhaPrincipal = e.linhas[0];
+            const vizinhos = encontrarVizinhos(coord_linhas, estacoesDescobertas, ultimaEstacao, linhaPrincipal, 5);
+            const nodesParaFocar = vizinhos.map(nome => ({
+                id: coord_estacoes[nome].id
+            }));
+            
+            // Se não houver vizinhos suficientes, foca pelo menos na própria estação
+            if (nodesParaFocar.length === 0) {
+                nodesParaFocar.push({ id: e.id });
+            }
+            
+            setTimeout(() => { // timeout pra facilitar renderização
+                fitView({
+                    duration: 800,
+                    padding: 0.3, 
+                    nodes: nodesParaFocar,
+                    maxZoom: 1.5, 
+                    minZoom: 0.5  
+                });
+            }, 150);
+        }
+        
+        prevEstacoesRef.current = estacoesDescobertas;
+    }, [estacoesDescobertas, fitView]);
+
+    return (
+        <ReactFlow 
+            nodes={nodes} 
+            edges={edges} 
+            nodeTypes={nodeTypes} 
+            edgeTypes={edgeTypes} 
+            defaultEdgeOptions={{ type: 'metro' }}
+        >
+            <Background 
+                color="var(--grid)"
+                gap={100}
+                size={2}
+                variant="lines"
+            />
+            <Controls />
+        </ReactFlow>
+    );
+}
+
+// Componente principal que envolve o Flow com o Provider
+export function Canvas({ estacoesDescobertas }) {
     return (
         <div style={{ width: "100%", height: "72vh" }}>
-            <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} edgeTypes={edgeTypes} defaultEdgeOptions={{ type: 'metro' }}>
-                <Background 
-                    color="var(--grid)"
-                    gap={100}
-                    size={2}
-                    variant="lines"
-                    />
-                <Controls />
-            </ReactFlow>
+            <ReactFlowProvider>
+                <FlowContent estacoesDescobertas={estacoesDescobertas} />
+            </ReactFlowProvider>
         </div>
     );
 }
