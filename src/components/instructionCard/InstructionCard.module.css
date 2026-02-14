@@ -1,0 +1,61 @@
+.container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6%;
+    width: 55%;
+
+    background-color: var(--accent_background);
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.container p{
+    font-size: 16px;
+    text-align: center;
+    width: 400px;
+}
+
+.titulo h3{
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #494949;
+}
+
+button.closeCard{
+    position: fixed;
+    top: 25px;
+    right: 25px;
+
+    height: 25px;
+    width: 25px;
+    
+    color: #494949;
+    font-weight: bolder;
+    background-color: var(--delicate_icon);
+    border-radius: 8px;
+
+    cursor: pointer !important;
+}
+
+.devInfo > img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.left, .right{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 45%;
+}

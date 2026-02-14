@@ -5,6 +5,7 @@ import './App.css'
 import Header from './components/header/Header'
 import InsertionBar from './components/insertionBar/InsertionBar'
 import InfoCard from './components/infoCard/InfoCard'
+import InstructionCard from './components/instructionCard/InstructionCard'
 import { Canvas } from "./components/canvas/canvas";
 
 // DADOS
@@ -14,7 +15,9 @@ function App() {
   
   const [descobertas, setDescobertas] = useState([]);                           // Estações descobertas
   const [infoState, setInfoState] = useState(false);                            // Estado do card de informações (aberto/fechado)
-  const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');   // modo light/dark
+  const [instructionState, setInstructionState] = useState(false);              // Estado do card de instruções (aberto/fechado)
+  const [mode, setMode] = useState(localStorage.getItem('theme') || 'dark');   // modo light/dark
+  const [gameMode, setGameMode] = useState('Expansão');                         // modo de jogo selecionado
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', mode);
@@ -52,10 +55,18 @@ function App() {
     <div className={`container ${mode === 'dark' ? 'dark' : 'light'}`}>
 
       {/* Card Informativo sobre o jogo */}
-      {infoState && <div className='backdrop' style={{ position: 'relative', zIndex: 0 }}></div>}
-      {infoState && <InfoCard style={{ position: 'relative', zIndex: 2 }} setInfoState={setInfoState}/>}
+      {(infoState || instructionState) && <div className='backdrop'></div>}
+      {infoState && <InfoCard style={{ position: 'relative', zIndex: 1002 }} setInfoState={setInfoState}/>}
+      {instructionState && <InstructionCard gameMode={gameMode} style={{ position: 'relative', zIndex: 1002 }} setInstructionState={setInstructionState} />}
 
-      <Header pontuacao={descobertas.length} style={{position: "relative", zIndex: 1}} mode={mode} setMode={setMode} setInfoState={setInfoState}></Header>
+      <Header
+        style={{position: "relative", zIndex: 1}}
+        mode={mode}
+        setMode={setMode}
+        pontuacao={descobertas.length}
+        setInfoState={setInfoState}
+        setGameModePage={setGameMode}
+        setInstructionState={setInstructionState}></Header>
       <Canvas estacoesDescobertas={descobertas} />
       <InsertionBar checkInput={checkInput}></InsertionBar>
     </div>
