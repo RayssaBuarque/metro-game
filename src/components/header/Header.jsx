@@ -6,37 +6,97 @@ import Info from '../../assets/infoSquare.svg?react';
 import Question from '../../assets/infoCircle.svg?react';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
-const Header = ({ pontuacao, mode, setMode, setGameModePage, setInfoState, setInstructionState }) => {    
+const Header = ({
+  pontuacao,
+  mode,
+  setMode,
+  gameMode,
+  setGameModePage,
+  gameState,
+  setGameState,
+  setInfoState,
+  setDescobertas,
+  setInstructionState }) => {    
   
-  const [gameMode, setGameMode] = useState('Expansão');
-
   /* 
-    VARIÁVEIS DO TEMPORIZADOR
+    TEMPORIZADOR
+        Ativa o timer apenas quando:
+        1. O modo é "Pense rápido"
+        2. O jogo está ativo (gameState = true)
+        3. Ainda há tempo restante
+
+        Quando o tempo acabar, para o timer e pausa o jogo
   */
-  const [tempo, setTempo] = useState(180);  
+  const periodoTimerSegundos = 180; 
+  const [tempo, setTempo] = useState(periodoTimerSegundos);  
+  const [timerActive, setTimerActive] = useState(false)
   const min = Math.floor(tempo / 60);
   const sec = tempo % 60;
 
+  useEffect(() => {
+    let interval = null;
+
+    if (gameMode === 'Pense rápido' && gameState && (tempo > 0)) {
+      setTimerActive(true);
+      interval = setInterval(() => {
+        setTempo(prevTempo => {
+
+          // Fim de Jogo
+          if (prevTempo <= 1) {
+            clearInterval(interval);
+            setTimerActive(false);
+            setGameState(false); 
+            return 0;
+          }
+
+          return prevTempo - 1;
+        });
+      }, 1000);
+    } else {
+      setTimerActive(false);
+    }
+
+    // Cleanup do intervalo
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [gameMode, gameState, tempo, setGameState]);
+
+  // Reseta o timer quando muda o modo de jogo
+  useEffect(() => {
+    setTempo(periodoTimerSegundos);
+    setTimerActive(false);
+  }, [gameMode, gameState]);
+
+  // Função pra lidar com o modo escuro/claro
   const toggleMode = () => {
     setMode((prevMode) => (prevMode === 'dark' ? 'light' : 'dark'));
   };
+
+  const handleModeChange = (mode) => {
+    setDescobertas([])
+    setGameModePage(mode);
+    setGameState(false); // Reseta o estado do jogo ao mudar o modo
+  }
 
   return (
     <div className={styles.container}>
       {/* Botões de Modos de Jogo */}
       <div className={styles.gameModes}>
         {/* Botão de modo PENSE RAPIDO */}
-        <div className={`${styles.modeButton}`} onClick={() => {setGameMode('Pense rápido'); setGameModePage('Pense rápido');}}>
+        <div className={`${styles.modeButton}`} onClick={() => handleModeChange('Pense rápido')}>
           <h3 className={`${gameMode === 'Pense rápido' ? styles.modeSelected : styles.modeUnselected}`}>pense rápido</h3>
         </div>
 
         {/* Botão de modo EXPANSAO */}
-        <div className={`${styles.modeButton}`} onClick={() => {setGameMode('Expansão'); setGameModePage('Expansão');}}>
+        <div className={`${styles.modeButton}`} onClick={() => handleModeChange('Expansão')}>
           <h3 className={`${gameMode === 'Expansão' ? styles.modeSelected : styles.modeUnselected}`}>expansão</h3>
         </div>
 
         {/* Botão de modo CHEGANDO LA */}
-        <div className={`${styles.modeButton}`} onClick={() => {setGameMode('Chegando lá'); setGameModePage('Chegando lá');}}>
+        <div className={`${styles.modeButton}`} onClick={() => handleModeChange('Chegando lá')}>
           <h3 className={`${gameMode === 'Chegando lá' ? styles.modeSelected : styles.modeUnselected}`}>chegando lá</h3>
         </div>
       </div>
@@ -80,4 +140,3 @@ const Header = ({ pontuacao, mode, setMode, setGameModePage, setInfoState, setIn
 };
    
 export default Header;
-   

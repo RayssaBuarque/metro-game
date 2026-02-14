@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './InsertionBar.module.css';
 
-const InsertionBar = ({checkInput}) => {
+const InsertionBar = ({checkInput, gameState, gameMode}) => {
     const [stationInput, setStationInput] = useState(""); // Armazena a estação digitada
     
     const handleInput = (e) => {
@@ -19,6 +19,7 @@ const InsertionBar = ({checkInput}) => {
                 onChange={(e) => setStationInput(e.target.value)}
                 placeholder="Nomeie uma estação..."
                 onKeyDown={handleInput}
+                disabled={(!gameState && gameMode != "Expansão")} // Desativa o input se o jogo não estiver ativo ou se estiver no modo "Expansão"
                 />
         </div>
     );

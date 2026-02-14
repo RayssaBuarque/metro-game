@@ -18,6 +18,7 @@ function App() {
   const [instructionState, setInstructionState] = useState(false);              // Estado do card de instruções (aberto/fechado)
   const [mode, setMode] = useState(localStorage.getItem('theme') || 'dark');   // modo light/dark
   const [gameMode, setGameMode] = useState('Expansão');                         // modo de jogo selecionado
+  const [gameState, setGameState] = useState(false);                                  // estado do jogo (ativo/inativo)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', mode);
@@ -65,10 +66,21 @@ function App() {
         setMode={setMode}
         pontuacao={descobertas.length}
         setInfoState={setInfoState}
+        gameMode={gameMode} 
         setGameModePage={setGameMode}
-        setInstructionState={setInstructionState}></Header>
-      <Canvas estacoesDescobertas={descobertas} />
-      <InsertionBar checkInput={checkInput}></InsertionBar>
+        gameState={gameState}
+        setGameState={setGameState}
+        setDescobertas={setDescobertas}
+        setInstructionState={setInstructionState} />
+      <Canvas
+        gameMode={gameMode}
+        gameState={gameState}
+        setGameState={setGameState}
+        estacoesDescobertas={descobertas} />
+      <InsertionBar
+        gameState={gameState}
+        gameMode={gameMode}
+        checkInput={checkInput}></InsertionBar>
     </div>
   )
 }

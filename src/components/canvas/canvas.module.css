@@ -1,0 +1,11 @@
+.playButton {
+    position: absolute;
+    z-index: 1000;
+    top: 45%;
+    left:45%;
+
+    cursor: pointer;
+    color: var(--accent-text);
+    height: 100px;
+    width: 100px;
+}

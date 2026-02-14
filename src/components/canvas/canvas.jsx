@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import ReactFlow, { Controls, Background, useReactFlow, ReactFlowProvider } from "reactflow";
 import encontrarVizinhos from "../../utils";
+import styles from './canvas.module.css';
 import "reactflow/dist/style.css";
+
+import PlayButton from '../../assets/playButton.svg?react';
 
 // Dados sobre as estações
 import { coord_estacoes, coord_linhas } from "../../data/estacoes";
@@ -19,9 +22,10 @@ const edgeTypes = {
 };
 
 // Componente interno que tem acesso ao useReactFlow
-function FlowContent({ estacoesDescobertas }) {
+function FlowContent({ estacoesDescobertas, gameState, gameMode }) {
     const { fitView } = useReactFlow();
     const prevEstacoesRef = useRef(estacoesDescobertas);
+    const prevGameStateRef = useRef(gameState);
 
     // Função para calcular o ângulo exato entre dois pontos
     function calcularAngulo(estacaoOrigem, estacaoDestino) {
@@ -122,7 +126,7 @@ function FlowContent({ estacoesDescobertas }) {
         }
     });
 
-    // Centralizando o canvas no nó descoberto a cada inserção de nó, com timeout pra garantir renderização
+    // Centraliza o canvas no nó descoberto a cada inserção de nó, com timeout pra garantir renderização
     useEffect(() => {
         const estacoesAnteriores = prevEstacoesRef.current;
         const novasEstacoes = estacoesDescobertas.filter(
@@ -159,13 +163,44 @@ function FlowContent({ estacoesDescobertas }) {
         prevEstacoesRef.current = estacoesDescobertas;
     }, [estacoesDescobertas, fitView]);
 
+    // Centraliza todos os nós e interrompe a tela quando o jogo é pausado
+    useEffect(() => {
+
+        if (prevGameStateRef.current === true && gameState === false) {
+            const todosNodes = estacoesDescobertas.map(nome => ({
+                id: coord_estacoes[nome].id
+            }));
+            
+            if (todosNodes.length > 0) {
+                setTimeout(() => {
+                    fitView({
+                        duration: 800,
+                        padding: 0.2,
+                        nodes: todosNodes,
+                        maxZoom: 1.5,
+                        minZoom: 0.5
+                    });
+                }, 150);
+            }
+        }
+        prevGameStateRef.current = gameState;
+    }, [gameState, estacoesDescobertas, fitView]);
+
     return (
         <ReactFlow 
             nodes={nodes} 
             edges={edges} 
             nodeTypes={nodeTypes} 
             edgeTypes={edgeTypes} 
+            nodesDraggable={false}
             defaultEdgeOptions={{ type: 'metro' }}
+            proOptions={{ hideAttribution: true }}
+
+            // Permite movimentações do canvas só durante um jogo ativo ou modo expansao
+            panOnDrag={(gameMode === "Expansão" ? true : gameState)}
+            panOnScroll={(gameMode === "Expansão" ? true : gameState)}
+            zoomOnScroll={(gameMode === "Expansão" ? true : gameState)}
+            zoomOnPinch={(gameMode === "Expansão" ? true : gameState)}
         >
             <Background 
                 color="var(--grid)"
@@ -179,11 +214,18 @@ function FlowContent({ estacoesDescobertas }) {
 }
 
 // Componente principal que envolve o Flow com o Provider
-export function Canvas({ estacoesDescobertas }) {
+export function Canvas({ estacoesDescobertas, gameMode, gameState, setGameState }) {
     return (
         <div style={{ width: "100%", height: "72vh" }}>
+            {/* Botão de início do jogo (ativo nos modos "pense rápido" e "chegando lá") */}
+            {(!gameState && (gameMode === "Pense rápido" || gameMode === "Chegando lá")) ? (
+                <PlayButton
+                    className={styles.playButton}
+                    onClick={() => setGameState(true)}/>
+            ) : null}
+
             <ReactFlowProvider>
-                <FlowContent estacoesDescobertas={estacoesDescobertas} />
+                <FlowContent gameState={gameState} gameMode={gameMode} estacoesDescobertas={estacoesDescobertas} />
             </ReactFlowProvider>
         </div>
     );
