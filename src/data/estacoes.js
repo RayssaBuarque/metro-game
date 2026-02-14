@@ -712,6 +712,29 @@ export const coord_linhas = {
       "Ipiranga"
     ]
   },
+  vermelha:{
+    cor: "var(--linha_3)",
+    ordem: [
+      'Palmeiras - Barra Funda',
+      'Mal. Deodoro',
+      'Santa Cecília',
+      'República',
+      'Anhangabaú',
+      'Sé',
+      'Pedro II',
+      'Brás',
+      'Bresser - Mooca',
+      'Belém',
+      'Tatuapé',
+      'Carrão',
+      'Penha',
+      'Vila Matilde',
+      'Guilhermina - Esperança',
+      'Patriarca - Vila Ré',
+      'Artur Alvim',
+      "Corinthians - Itaquera",
+    ]
+  },
   amarela: {
     cor: "var(--linha_4)",
     ordem: [
@@ -748,6 +771,56 @@ export const coord_linhas = {
       "Hospital São Paulo",
       "Santa Cruz",
       "Chácara Klabin"
+    ]
+  },
+  rubi:{
+    cor: "var(--linha_7)",
+    ordem: [
+      'Jundiaí',
+      'Várzea Paulista',
+      'Campo Limpo Paulista',
+      'Botujuru',
+      'Francisco Morato',
+      'Baltazar Fidéis',
+      'Franco da Rocha',
+      'Caleiras',
+      'Perus',
+      'Vila Aurora',
+      'Jaraguá',
+      'Vila Clarice',
+      'Pirituba',
+      'Piqueri',
+      'Lapa',
+      'Água Branca',
+      'Palmeiras - Barra Funda'
+    ]
+  },
+  diamante:{
+    cor: "var(--linha_8)",
+    ordem: [
+      'Amador Bueno',
+      'Ambuitá',
+      'Santa Rita',
+      'Itapevi',
+      'Engº Cardoso',
+      'Sagrado Coração',
+      'Jandira',
+      'Jd. Silveira',
+      'Jd. Belval',
+      'Barueri',
+      'Antonio João',
+      'Santa Terezinha',
+      'Carapicuíba',
+      'Gen. Miguel Costa',
+      'Quitaúna',
+      'Com. Sampaio',
+      'Osasco',
+      'Pres. Altino',
+      'Imperatriz Leopoldina',
+      'Domingos de Moraes',
+      'Lapa',
+      'Palmeiras - Barra Funda',
+      'Júlio Prestes'
     ]
   },
   esmeralda: {
